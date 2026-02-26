@@ -39,7 +39,7 @@ Each learning step has it's own workflow and is required to have the following t
 jobs:
   find_exercise:
     name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.7.0
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.8.1
 
   post_next_step_content:
     name: Post next step content
@@ -57,7 +57,7 @@ See full example of workflow without grading in [`exercise-template/.github/work
 jobs:
   find_exercise:
     name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.7.0
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.8.1
 
   check_step_work:  # Optional grading job
     name: Check step work
@@ -105,14 +105,14 @@ Use the `exercise-toolkit` repository for reusable markdown templates for commen
 ```yaml
 steps:
   - name: Checkout
-    uses: actions/checkout@v4
+    uses: actions/checkout@v6
 
   - name: Get response templates
-    uses: actions/checkout@v4
+    uses: actions/checkout@v6
     with:
       repository: skills/exercise-toolkit
       path: exercise-toolkit
-      ref: v0.7.0  # Pin to specific version
+      ref: v0.8.1  # Pin to specific version
 ```
 
 ### Comment Management
@@ -142,7 +142,7 @@ Use `GrantBirki/comment` action for all issue comment operations. You can pass v
 ```yaml
 - name: Find last comment
   id: find-last-comment
-  uses: peter-evans/find-comment@v3
+  uses: peter-evans/find-comment@v4
   with:
     repository: ${{ env.ISSUE_REPOSITORY }}
     issue-number: ${{ env.ISSUE_NUMBER }}
